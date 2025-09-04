@@ -14,6 +14,7 @@ const app = express();
 app.use(cors({
   origin: [
     "https://cywav.vercel.app",  // Production domain
+    "https://jerry-booking.onrender.com",  // Your frontend domain
     "http://localhost:5173",     // Vite dev server
     "http://localhost:3000",     // Alternative dev port
     "http://127.0.0.1:5173"      // Alternative localhost format
