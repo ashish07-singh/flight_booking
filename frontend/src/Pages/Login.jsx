@@ -4,6 +4,9 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence, useMotionValue, useTransform } from 'framer-motion';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+
+// Environment variables
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000/api';
 import { EyeIcon, EyeSlashIcon, ExclamationCircleIcon } from '@heroicons/react/24/solid';
 import InteractiveBackground from '../Components/AnimatedBackground';
  // Make sure the path is correct
@@ -105,7 +108,7 @@ const LoginPage = () => {
 
     setLoading(true); setApiError('');
     try {
-      const res = await axios.post('http://localhost:5000/api/auth/login', formData);
+      const res = await axios.post(`${API_BASE_URL}/auth/login`, formData);
       localStorage.setItem('token', res.data.token);
       navigate('/');
     } catch (err) {

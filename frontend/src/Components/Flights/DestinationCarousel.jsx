@@ -18,7 +18,7 @@ import lon from '../../assets/lon.jpg';
 import hyd from '../../assets/hyd.jpg';
 
 // === API Base URL (from your example) ===
-const API_BASE = import.meta.env.VITE_API_BASE || "http://localhost:5000";
+const API_BASE = import.meta.env.VITE_SERVER_URL || "http://localhost:5000";
 
 // --- DATA: The hardcoded 'price' is no longer needed as we'll fetch it live ---
 const FLIGHT_DESTINATIONS = {

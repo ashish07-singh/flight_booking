@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios'; // <-- NEW: Import axios for API calls
+
+// Environment variables
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000/api';
 import { EyeIcon, EyeSlashIcon } from '@heroicons/react/24/solid';
 
 const SignupForm = () => {
@@ -61,7 +64,7 @@ const SignupForm = () => {
     if (Object.keys(validationErrors).length === 0) {
       try {
         // <-- NEW: Make a POST request to your backend
-        const res = await axios.post('http://localhost:5000/api/auth/signup', {
+        const res = await axios.post(`${API_BASE_URL}/auth/signup`, {
           fullName: formData.fullName,
           email: formData.email,
           password: formData.password,

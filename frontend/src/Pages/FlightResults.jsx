@@ -1,6 +1,9 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import axios from 'axios';
 import { useLocation, useNavigate } from 'react-router-dom';
+
+// Environment variables
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000/api';
 import heroImage from '../assets/download.png'; // Ensure this is the correct high-quality hero image
 // --- ICONS (Matching the previous component's style) ---
 import { FaPlaneDeparture, FaPlaneArrival } from 'react-icons/fa';
@@ -96,7 +99,7 @@ export default function FlightResults() {
     setError('');
     setAlternativeDateSuggestions([]);
     try {
-      const res = await axios.get('http://localhost:5000/api/flights/search', {
+      const res = await axios.get(`${API_BASE_URL}/flights/search`, {
         params: {
           origin: currentOriginCode,
           destination: currentDestinationCode,
@@ -226,7 +229,7 @@ export default function FlightResults() {
     const availableDates = [];
     for (const date of datesToCheck) {
       try {
-        const res = await axios.get('http://localhost:5000/api/flights/search', {
+        const res = await axios.get(`${API_BASE_URL}/flights/search`, {
           params: {
             origin: origin,
             destination: destination,

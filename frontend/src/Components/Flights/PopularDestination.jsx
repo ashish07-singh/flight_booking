@@ -8,7 +8,7 @@ import image4 from '../../assets/4.jpg';
 import image5 from '../../assets/5.jpg';
 import image6 from '../../assets/sing.jpg'; // Add this import for Singapore image
 
-const API_BASE = import.meta.env.VITE_API_BASE || "http://localhost:5000";
+const API_BASE = import.meta.env.VITE_SERVER_URL || "http://localhost:5000";
 // === useMediaQuery Hook ===
 const useMediaQuery = (query) => {
   const [matches, setMatches] = useState(false);

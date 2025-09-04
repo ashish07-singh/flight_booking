@@ -3,6 +3,9 @@ import axios from 'axios';
 import { motion } from 'framer-motion';
 import { FiMail, FiUser, FiMessageCircle, FiSend } from 'react-icons/fi';
 
+// Environment variables
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000/api';
+
 const ContactUs = () => {
   const [formData, setFormData] = useState({
     name: '',
@@ -27,7 +30,7 @@ const handleSubmit = async (e) => {
 
   try {
     const response = await axios.post(
-      "http://localhost:5000/api/contact",
+      `${API_BASE_URL}/contact`,
       formData
     );
 
